@@ -1,6 +1,4 @@
-AUTHENTIC_JOBS_API = "ba181c224a81f092ddef72c7ae0c5b84";
 GOOGLE_MAPS_API = "AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw";
-USAJOBS_API = "7YSRqOom2Y4/KQwq2r0EApibcaWm/KCuNiDAyasjox8=";
 DICE_BASE_URL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?"
 // EXAMPLE SEARCH FOR DICE
 // http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=java&city=New+York,+NY search for java jobs in the New York, NY area
@@ -25,7 +23,26 @@ function getServerData(criteria,zipcode) {
 
 };
 
-console.log(getServerData("java",null));
+
+function getDataArray(obj) {
+    console.log(obj.resultItemList);
+    return obj.resultItemList;
+}
+
+function getCompanyName(obj) {
+    return (obj.map(function(element) {
+        return element["company"]}));
+
+}
+
+
+getServerData(null,30342)
+    .then(function(data) {
+       return getDataArray(data)})
+            .then(function(data) {
+                getCompanyName(data)
+            });
+
 
 
 

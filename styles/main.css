@@ -30,3 +30,46 @@
     width: 100%;
     height: 70%;
 }
+
+.search-location {
+    border: 3px solid silver;
+    background: none;
+    border-color: -webkit-gradient(linear, left top, left bottom, from(#B4A0BF), to(#E4E2E5));
+    border-color: -webkit-linear-gradient(top, #B4A0BF, #E4E2E5);
+    border-color: -moz-linear-gradient(top, #B4A0BF, #E4E2E5);
+    border-color: linear-gradient(to bottom, #B4A0BF, #E4E2E5);
+}
+
+/* SEACHBOX PLACEHOLDER COLOR */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    black;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    black;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    black;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    black;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    black;
+}
+
+/* iPhone 6 */
+@media (min-width: 375px) {
+
+}
+
+/* iPhone 6 Plus */
+@media (min-width: 414px) {
+
+}
+
+/* iPad */
+@media (min-width: 768px) {
+
+}

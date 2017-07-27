@@ -20,8 +20,6 @@ function getServerData(criteria,zipcode,date) {
         } else {
             locationSearch = ""
         }
-
-
     console.log(DICE_BASE_URL+textSearch+locationSearch+"&age="+date);
     return $.get(DICE_BASE_URL+textSearch+locationSearch+"&age="+date)
         .then(function (data) {
@@ -70,29 +68,26 @@ var localTestData = ["Accenture Technology Solutions", "Visionaire Partners", "K
 
 
 var TestString = localTestData[0];
-console.log(TestString)
-console.log(GMAPS_URL+TestString+'&key='+GOOGLE_MAPS_API)
-
-// function getCoordinates(array) {
-//     array.map(function(element) {
-//         // return $.get(GMAPS_URL+TestString+'&key='+GOOGLE_MAPS_API)
-//             .then(function (data) {
-
-//             })
-//     })
-// }
+// console.log(TestString)
+// console.log(GMAPS_URL+TestString+'&key='+GOOGLE_MAPS_API)
 
 
-$.get(GMAPS_URL+TestString+'&key='+GOOGLE_MAPS_API)
-    .then (function(data) {
-        console.log(data)
-        return data.results})
+
+function getCoordinates(array, location){
+    var coordinates = []
+   for (x in array) {
+        console.log(GMAPS_URL+array[x]+location+'&key='+GOOGLE_MAPS_API);
+        $.get(GMAPS_URL+array[x]+location+'&key='+GOOGLE_MAPS_API)
             .then (function(data) {
-                console.log(data[0].geometry)
-                return data[0].geometry})
+                return data.results})
                     .then (function(data) {
-                        console.log(data)
-                        return data.location
-                    })
+                        return data[0].geometry})
+                            .then (function(data) {
+                                coordinates.push(data.location)
+                            });
+    }
+    return coordinates 
+}
 
-// function loopThroughArray();
+var searchData = getCoordinates(localTestData,30342);
+console.log(searchData);

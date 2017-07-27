@@ -34,10 +34,13 @@
 .search-location {
     border: 3px solid silver;
     background: none;
-    border-color: -webkit-gradient(linear, left top, left bottom, from(#B4A0BF), to(#E4E2E5));
-    border-color: -webkit-linear-gradient(top, #B4A0BF, #E4E2E5);
-    border-color: -moz-linear-gradient(top, #B4A0BF, #E4E2E5);
-    border-color: linear-gradient(to bottom, #B4A0BF, #E4E2E5);
+    border: 2px solid transparent;
+    height: 20px;
+    width: 65%;
+    -webkit-border-image: -webkit-linear-gradient(top, #f1f1f1, #acacac);
+    -moz-border-image: -moz-linear-gradient(top, #f1f1f1, #acacac);
+    border-image: linear-gradient(to bottom, #f1f1f1, #acacac);
+    border-image-slice: 1;
 }
 
 /* SEACHBOX PLACEHOLDER COLOR */

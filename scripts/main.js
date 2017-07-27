@@ -27,7 +27,7 @@ function getServerData(criteria,zipcode) {
             console.log(jobCount);
             for (var i=1;i<=Math.ceil(jobCount/50);i++) {
                 searchResults.push($.get(DICE_BASE_URL+textSearch+locationSearch+"&page="+i));
-            } console.log(typeof searchResults)
+            } 
             return searchResults;
         })
 };
@@ -38,11 +38,9 @@ function getDataArray(objectArray) {
     return Promise.all(objectArray)
         .then (function(data) {
             var jobs = data.map(function(page) {
-                console.log(page.resultItemList)
                 return (page.resultItemList)
             })
             var merged = [].concat.apply([],jobs);
-            console.log(merged);
             return merged;
         }) 
 }

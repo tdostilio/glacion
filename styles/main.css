@@ -147,11 +147,12 @@
 /* FADE */
 .body-container {
     opacity: 1;
-    transition: 3s;
+    transition: 3s ease-in;
 }
 
 .fade-out {
     opacity: 0;
+    transition: 3s ease;
 }
 
 /* iPad */

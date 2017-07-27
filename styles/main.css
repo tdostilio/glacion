@@ -144,6 +144,16 @@
     transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 
+/* FADE */
+.body-container {
+    opacity: 1;
+    transition: 3s;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
 /* iPad */
 @media (min-width: 420px) {
     .search-location {

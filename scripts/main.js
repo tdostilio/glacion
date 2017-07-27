@@ -6,6 +6,8 @@ DICE_BASE_URL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?"
 function getServerData(criteria,zipcode) {
     var locationSearch;
     var textSearch;
+    var searchResults = [];
+    var jobCount;
         if (criteria) {
             textSearch = "text="+criteria+"&";
         } else {
@@ -19,13 +21,21 @@ function getServerData(criteria,zipcode) {
         }
 
     console.log(DICE_BASE_URL+textSearch+locationSearch);
-    return $.get(DICE_BASE_URL+textSearch+locationSearch);
-
+    return $.get(DICE_BASE_URL+textSearch+locationSearch)
+        .then(function (data) {
+            jobCount = data.count;
+            console.log(jobCount);
+            for (var i=1;i<(jobCount/50);i++) {
+                searchResults.push($.get(DICE_BASE_URL+textSearch+locationSearch+"&page="+i));
+            } console.log(searchResults)
+            return searchResults;
+        })
 };
 
 
-function getDataArray(obj) {
-    console.log(obj.resultItemList);
+
+function getDataArray(objArray) {
+    console.log(typeof objArray)
     return obj.resultItemList;
 }
 

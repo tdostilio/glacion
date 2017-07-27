@@ -53,6 +53,13 @@
     border-image-slice: 1;
 }
 
+/* JOB AND DATE CONTAINER */
+.job-date-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
 /* JOB TITLE SEARCH BOX */
 .job-title-searchbox {
     display: flex;
@@ -66,7 +73,7 @@
     background: none;
     border: 2px solid transparent;
     height: 25px;
-    width: 32.5%;
+    width: 30%;
     text-indent: 5px;
     font-family: "Maven Pro", Helvetica, Arial, sans-serif;
     -webkit-border-image: -webkit-linear-gradient(top, #f1f1f1, #acacac);
@@ -80,18 +87,18 @@
     color:    white;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    white;
-   opacity:  1;
+    color:    white;
+    opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    white;
-   opacity:  1;
+    color:    white;
+    opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    white;
+    color:    white;
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
-   color:    white;
+    color:    white;
 }
 
 /* iPhone 6 */

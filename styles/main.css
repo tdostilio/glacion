@@ -54,7 +54,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 67%;
+    width: 66.5%;
     transform: translateY(15px);
 }
 
@@ -79,6 +79,7 @@
 }
 
 .date-select {
+    border-radius: 0px; 
     border: 3px solid silver;
     background: none; 
     border: 2px solid transparent; 
@@ -132,17 +133,24 @@
     transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 
-/* iPhone 6 */
-@media (min-width: 375px) {
-
-}
-
-/* iPhone 6 Plus */
-@media (min-width: 414px) {
-
-}
-
 /* iPad */
-@media (min-width: 768px) {
+@media (min-width: 420px) {
+    .search-location {
+        width: 45%;
+    }
 
+    .job-date-container {
+        justify-content: flex-start;
+        width: 45%;
+    }
+
+    .job-title-searchbox {
+        width: 100%;
+    }
+
+    .search-button:hover, .search-button:active {
+        background-color: transparent;
+        color: white;
+        transition: background-color 0.3s ease-in, color 0.3s ease-in;
+    }
 }

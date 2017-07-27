@@ -25,7 +25,7 @@ function getServerData(criteria,zipcode) {
         .then(function (data) {
             jobCount = data.count;
             console.log(jobCount);
-            for (var i=1;i<=(jobCount/50);i++) {
+            for (var i=1;i<=Math.ceil(jobCount/50);i++) {
                 searchResults.push($.get(DICE_BASE_URL+textSearch+locationSearch+"&page="+i));
             } console.log(typeof searchResults)
             return searchResults;
@@ -60,6 +60,7 @@ getServerData("Java",30342)
        return getDataArray(data)})
             .then(function(data) {
                 console.log(getCompanyName(data))
+                return (getCompanyName(data))
             });
 
 

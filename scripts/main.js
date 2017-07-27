@@ -1,5 +1,6 @@
 var GOOGLE_MAPS_API = "AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw";
-var DICE_BASE_URL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?"
+var DICE_BASE_URL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?";
+var GMAPS_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
 // EXAMPLE SEARCH FOR DICE
 // http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=java&city=New+York,+NY search for java jobs in the New York, NY area
 
@@ -62,13 +63,36 @@ function getCompanyName(array) {
 //                 return (getCompanyName(data))
 //             });
 
-
-
-
-
-
-
-
-
-
 var localTestData = ["Accenture Technology Solutions", "Visionaire Partners", "Kavi Software", "Datamatics Global Services Ltd.", "Principle Solutions Group", "Visionaire Partners", "Visionaire Partners", "Genesis10", "Spectrum IT Global INC", "Pyramid Consulting, Inc.", "Arthur Lawrence", "Amzur Technologies, Inc.", "Visionaire Partners", "Brooksource", "Collabera", "Principle Solutions Group", "Visionaire Partners", "Principle Solutions Group", "Principle Solutions Group", "Visionaire Partners", "Visionaire Partners", "Prestige Staffing", "Digital Intelligence Systems, LLC", "Data Resource Technologies", "Principle Solutions Group", "Data Resource Technologies", "Veredus", "Visionaire Partners", "Principle Solutions Group", "Agile Global Solutions, Inc", "Principle Solutions Group", "Visionaire Partners", "Signature Consultants", "Pegasys Systems & Technologies Inc", "Rivi Consulting Group", "Visionaire Partners", "UST Global Inc", "ICON Technologies", "Principle Solutions Group", "Rivi Consulting Group", "Pyramid Consulting, Inc.", "Visionaire Partners", "Datanomics", "Cambridge Technical", "Kforce Inc.", "iStaff", "Travelport", "iStaff", "Swinsoft", "Metasys Technologies", "HMG America", "AptoNet Inc", "Career Guidant, Inc", "Spark Data Solutions, Inc.", "Travelport", "Mindtree Limited", "Alliance Sourcing Network", "firstPRO, Inc.", "firstPRO, Inc.", "Primus Software Corp", "AptoNet Inc", "Career Guidant, Inc", "Paramount Software Solutions, Inc", "Allied Informatics, Inc", "Travelport", "Thompson Technologies", "Robert Half Technology", "Softpros, Inc.", "Mindtree Limited", "Charter Global, Inc.", "iStaff", "iStaff", "Capgemini", "Strivector", "The Judge Group", "Routematch", "M9 Solutions", "3Ci", "Hired by Matrix, Inc.", "Stellar Consulting Solutions", "Primus Software Corp", "Routematch", "Primus Software Corp", "Paramount Software Solutions, Inc", "Metasys Technologies", "iStaff", "Cambridge Technical", "Matrix Resources", "Matrix Resources", "Squires Group, Inc", "Cambridge Technical", "ProActive Resources, Inc", "Techno-Comp, Inc.", "Open Systems Inc", "Professional Insight", "Citadel Information Services Inc", "3i People, Inc.", "Professional Insight", "Travelport", "Paramount Software Solutions, Inc"]
+
+// EXAMPLE GMAPS URL
+// https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=YOUR_API_KEY
+
+
+var TestString = localTestData[0];
+console.log(TestString)
+console.log(GMAPS_URL+TestString+'&key='+GOOGLE_MAPS_API)
+
+// function getCoordinates(array) {
+//     array.map(function(element) {
+//         // return $.get(GMAPS_URL+TestString+'&key='+GOOGLE_MAPS_API)
+//             .then(function (data) {
+
+//             })
+//     })
+// }
+
+
+$.get(GMAPS_URL+TestString+'&key='+GOOGLE_MAPS_API)
+    .then (function(data) {
+        console.log(data)
+        return data.results})
+            .then (function(data) {
+                console.log(data[0].geometry)
+                return data[0].geometry})
+                    .then (function(data) {
+                        console.log(data)
+                        return data.location
+                    })
+
+// function loopThroughArray();

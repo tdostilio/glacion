@@ -1,5 +1,5 @@
-GOOGLE_MAPS_API = "AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw";
-DICE_BASE_URL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?"
+var GOOGLE_MAPS_API = "AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw";
+var DICE_BASE_URL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?"
 // EXAMPLE SEARCH FOR DICE
 // http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=java&city=New+York,+NY search for java jobs in the New York, NY area
 

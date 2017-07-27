@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 2880 1800" style="enable-background:new 0 0 2880 1800;" xml:space="preserve">
+<style type="text/css">
+	.st0{font-family:'Trench-Thin';}
+	.st1{font-size:500px;}
+	.st2{stroke:#000000;stroke-miterlimit:10;}
+</style>
+<text transform="matrix(1 0 0 1 952.6924 1003)" class="st0 st1">Glacion</text>
+<g>
+	<g>
+		<path d="M705.5,662.5c-20.4,0-37-16.6-37-37s16.6-37,37-37s37,16.6,37,37S725.9,662.5,705.5,662.5z"/>
+		<path d="M705.5,589c20.1,0,36.5,16.4,36.5,36.5S725.6,662,705.5,662S669,645.6,669,625.5S685.4,589,705.5,589 M705.5,588
+			c-20.7,0-37.5,16.8-37.5,37.5s16.8,37.5,37.5,37.5s37.5-16.8,37.5-37.5S726.2,588,705.5,588L705.5,588z"/>
+	</g>
+	<polyline class="st2" points="706,662 705.5,662.1 705.5,662.5 	"/>
+	<polygon class="st2" points="706.2,1016.5 641.5,959.5 705.5,625.5 771,959.5 	"/>
+</g>
+</svg>

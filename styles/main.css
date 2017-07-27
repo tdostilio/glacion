@@ -20,9 +20,10 @@
     width: 100%;
 }
 
-/* SEARCHBOXES */
+/* SEARCH BOXES */
 .searchbox {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -31,7 +32,7 @@
     height: 70%;
 }
 
-/* LOCATION SEARCHBOX */
+/* LOCATION SEARCH BOX */
 .location-searchbox {
     display: flex;
     justify-content: center;
@@ -52,25 +53,45 @@
     border-image-slice: 1;
 }
 
-/* JOB TITLE SEARCHBOX */
+/* JOB TITLE SEARCH BOX */
+.job-title-searchbox {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.search-job-title {
+    border: 3px solid silver;
+    background: none;
+    border: 2px solid transparent;
+    height: 25px;
+    width: 32.5%;
+    text-indent: 5px;
+    font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+    -webkit-border-image: -webkit-linear-gradient(top, #f1f1f1, #acacac);
+    -moz-border-image: -moz-linear-gradient(top, #f1f1f1, #acacac);
+    border-image: linear-gradient(to bottom, #f1f1f1, #acacac);
+    border-image-slice: 1;
+}
 
 /* SEACHBOX PLACEHOLDER COLOR */
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:    black;
+    color:    white;
 }
 :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-   color:    black;
+   color:    white;
    opacity:  1;
 }
 ::-moz-placeholder { /* Mozilla Firefox 19+ */
-   color:    black;
+   color:    white;
    opacity:  1;
 }
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-   color:    black;
+   color:    white;
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
-   color:    black;
+   color:    white;
 }
 
 /* iPhone 6 */

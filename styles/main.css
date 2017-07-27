@@ -58,21 +58,21 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    margin-top: 5px;
 }
 
 /* JOB TITLE SEARCH BOX */
 .job-title-searchbox {
     display: flex;
     justify-content: center;
-    margin-top: 5px;
-    width: 100%;
+    width: 32%;
 }
 
 .search-job-title {
     border: 3px solid silver;
     background: none;
     border: 2px solid transparent;
-    height: 25px;
+    height: 100%;
     width: 30%;
     text-indent: 5px;
     font-family: "Maven Pro", Helvetica, Arial, sans-serif;
@@ -80,6 +80,26 @@
     -moz-border-image: -moz-linear-gradient(top, #f1f1f1, #acacac);
     border-image: linear-gradient(to bottom, #f1f1f1, #acacac);
     border-image-slice: 1;
+}
+
+/* DATE SELECT */
+.date-container {
+    display: flex;
+}
+
+.date-select {
+    border: 3px solid silver;
+    background: none; 
+    border: 2px solid transparent; 
+    height: 100%; 
+    width: 100%;
+    text-indent: 5px; 
+    color: white;
+    font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+    -webkit-border-image: -webkit-linear-gradient(top, #f1f1f1, #acacac);
+    -moz-border-image: -moz-linear-gradient(top, #f1f1f1, #acacac);
+    border-image: linear-gradient(to bottom, #f1f1f1, #acacac);
+    border-image-slice: 1;   
 }
 
 /* SEACHBOX PLACEHOLDER COLOR */

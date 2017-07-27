@@ -35,8 +35,10 @@
     border: 3px solid silver;
     background: none;
     border: 2px solid transparent;
-    height: 20px;
+    height: 25px;
     width: 65%;
+    text-indent: 5px;
+    font-family: "Maven Pro", Helvetica, Arial, sans-serif;
     -webkit-border-image: -webkit-linear-gradient(top, #f1f1f1, #acacac);
     -moz-border-image: -moz-linear-gradient(top, #f1f1f1, #acacac);
     border-image: linear-gradient(to bottom, #f1f1f1, #acacac);

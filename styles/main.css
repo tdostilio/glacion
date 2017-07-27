@@ -20,8 +20,8 @@
     width: 100%;
 }
 
-/* LOCATION SEARCHBOX */
-.searchbox-location {
+/* SEARCHBOXES */
+.searchbox {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +29,13 @@
     z-index: 1;
     width: 100%;
     height: 70%;
+}
+
+/* LOCATION SEARCHBOX */
+.location-searchbox {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .search-location {
@@ -44,6 +51,8 @@
     border-image: linear-gradient(to bottom, #f1f1f1, #acacac);
     border-image-slice: 1;
 }
+
+/* JOB TITLE SEARCHBOX */
 
 /* SEACHBOX PLACEHOLDER COLOR */
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */

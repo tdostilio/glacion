@@ -1,1 +1,11 @@
+AUTHENTIC_JOBS_API = "ba181c224a81f092ddef72c7ae0c5b84";
+GOOGLE_MAPS_API = "AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw";
+USAJOBS_API = "7YSRqOom2Y4/KQwq2r0EApibcaWm/KCuNiDAyasjox8=";
+
+
+
+
+
+
+
 

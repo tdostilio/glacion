@@ -25,32 +25,41 @@ function getServerData(criteria,zipcode) {
         .then(function (data) {
             jobCount = data.count;
             console.log(jobCount);
-            for (var i=1;i<(jobCount/50);i++) {
+            for (var i=1;i<=(jobCount/50);i++) {
                 searchResults.push($.get(DICE_BASE_URL+textSearch+locationSearch+"&page="+i));
-            } console.log(searchResults)
+            } console.log(typeof searchResults)
             return searchResults;
         })
 };
 
 
 
-function getDataArray(objArray) {
-    console.log(typeof objArray)
-    return obj.resultItemList;
+function getDataArray(objectArray) {
+    return Promise.all(objectArray)
+        .then (function(data) {
+            var jobs = data.map(function(page) {
+                console.log(page.resultItemList)
+                return (page.resultItemList)
+            })
+            var merged = [].concat.apply([],jobs);
+            console.log(merged);
+            return merged;
+        }) 
 }
 
-function getCompanyName(obj) {
-    return (obj.map(function(element) {
-        return element["company"]}));
 
+function getCompanyName(array) {
+    return array.map(function(posting) {
+        return posting["company"];
+    });
 }
 
-
-getServerData(null,30342)
+// Main Search Function
+getServerData("Java",30342)
     .then(function(data) {
        return getDataArray(data)})
             .then(function(data) {
-                getCompanyName(data)
+                console.log(getCompanyName(data))
             });
 
 

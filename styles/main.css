@@ -47,6 +47,8 @@
     text-indent: 5px;
     font-family: "Maven Pro", Helvetica, Arial, sans-serif;
     box-shadow: 0 0 15px black;
+    outline: none;
+    color: white;
 }
 
 /* JOB AND DATE CONTAINER */
@@ -71,6 +73,8 @@
     width: 92%;
     font-family: "Maven Pro", Helvetica, Arial, sans-serif;
     box-shadow: 0 0 15px black;
+    outline: none;
+    color: white;
 }
 
 /* DATE SELECT */
@@ -89,6 +93,7 @@
     color: white;
     font-family: "Maven Pro", Helvetica, Arial, sans-serif;
     box-shadow: 0 0 15px black;  
+    outline: none;
 }
 
 /* SEACHBOX PLACEHOLDER COLOR */

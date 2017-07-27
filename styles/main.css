@@ -40,17 +40,13 @@
 }
 
 .search-location {
-    border: 3px solid silver;
     background: none;
     border: 2px solid transparent;
     height: 25px;
     width: 65%;
     text-indent: 5px;
     font-family: "Maven Pro", Helvetica, Arial, sans-serif;
-    -webkit-border-image: -webkit-linear-gradient(top, #f1f1f1, #acacac);
-    -moz-border-image: -moz-linear-gradient(top, #f1f1f1, #acacac);
-    border-image: linear-gradient(to bottom, #f1f1f1, #acacac);
-    border-image-slice: 1;
+    box-shadow: 0 0 15px black;
 }
 
 /* JOB AND DATE CONTAINER */
@@ -59,7 +55,7 @@
     flex-direction: row;
     justify-content: center;
     width: 67%;
-    margin-top: 5px;
+    transform: translateY(15px);
 }
 
 /* JOB TITLE SEARCH BOX */
@@ -69,16 +65,12 @@
 }
 
 .search-job-title {
-    border: 3px solid silver;
     background: none;
     border: 2px solid transparent;
     text-indent: 5px;
     width: 92%;
     font-family: "Maven Pro", Helvetica, Arial, sans-serif;
-    -webkit-border-image: -webkit-linear-gradient(top, #f1f1f1, #acacac);
-    -moz-border-image: -moz-linear-gradient(top, #f1f1f1, #acacac);
-    border-image: linear-gradient(to bottom, #f1f1f1, #acacac);
-    border-image-slice: 1;
+    box-shadow: 0 0 15px black;
 }
 
 /* DATE SELECT */
@@ -95,10 +87,7 @@
     text-indent: 5px; 
     color: white;
     font-family: "Maven Pro", Helvetica, Arial, sans-serif;
-    -webkit-border-image: -webkit-linear-gradient(top, #f1f1f1, #acacac);
-    -moz-border-image: -moz-linear-gradient(top, #f1f1f1, #acacac);
-    border-image: linear-gradient(to bottom, #f1f1f1, #acacac);
-    border-image-slice: 1;   
+    box-shadow: 0 0 15px black;  
 }
 
 /* SEACHBOX PLACEHOLDER COLOR */
@@ -118,6 +107,29 @@
 }
 ::-ms-input-placeholder { /* Microsoft Edge */
     color:    white;
+}
+
+/* SEARCH BUTTON */
+.search-button {  
+    border: none;
+    background: #990000;
+    color: white;
+    font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    padding: 10px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* margin-top: 50px; */
+    transform: translateY(50px);
+    transition: background-color 0.2s ease-out, color 0.2s ease-out;
+    box-shadow: 0 0 15px black; 
+}
+
+.search-button:hover, .search-button:active {
+    background-color: transparent;
+    color: white;
+    transition: background-color 0.3s ease-in, color 0.3s ease-in;
 }
 
 /* iPhone 6 */

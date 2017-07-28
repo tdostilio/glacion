@@ -24,6 +24,13 @@
     padding: 0px;
 }
 
+/* GOOGLE MAP  */
+#map {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+}
+
 /* iPad */
 @media (min-width: 768px) {
     .logo {

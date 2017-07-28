@@ -67,6 +67,15 @@ var localTestData = ["Chik Fil A", "Accenture Technology Solutions", "Visionaire
 // EXAMPLE GMAPS URL
 // https://maps.googleapis.com/maps/api/place/textsearch/json?query=123+main+street&key=YOUR_API_KEY
 
+var TestString = localTestData[0];
+// console.log(TestString)
+// console.log(GMAPS_URL+TestString+'&key='+GOOGLE_MAPS_API)
+function convertZiptoCity(zipcode) {
+    return $.get("http://maps.googleapis.com/maps/api/geocode/json?address="+zipcode+"&sensor=true")
+        .then (function(data) {
+            return data.results[0].address_components[1].long_name;
+        })
+}
 
 var TestString = localTestData[0];
 // console.log(TestString)
@@ -78,6 +87,10 @@ function convertZiptoCity(zipcode) {
         })
 }
 
+convertZiptoCity(30342)
+    .then (function(data) {
+        console.log(data);
+    })
 
 
 function getCoordinates(array, location){

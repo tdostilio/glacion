@@ -10,4 +10,4 @@ Another techinical challenge was getting the job posting results in a usuable fo
 
 
 Day 2 Challenges:
-Coordinates function would return data outside of Atlanta when we were testing for Atlanta zip codes. 
+Coordinates function would return data outside of Atlanta when we were testing for Atlanta zip codes. Solution was to create zipcode function that returned string name of city to run through Google Maps.

@@ -119,7 +119,9 @@ function getCoordinates(array, location){
 
 getCoordinates(localTestData,30342)
     .then (function(dataArray) {
-        console.log(dataArray);
+        dataArray.map(function(item) {
+            
+        });
     })
 ;
 

@@ -11,44 +11,59 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body>
-    <!-- GRANIM CANVAS -->
-    <canvas id="granim-canvas"></canvas>
-
-    <!-- GLACION LOGO -->
-    <img class="logo" src="images/glacion-logo-red.svg" alt="Glacion Logo">
     
-    <!-- SEARCH BOXES -->
-    <form class="searchbox" action="">
-        <!-- LOCATION SEARCH BOX -->
-        <div class="location-searchbox">
-            <input class="search-location" type="text" placeholder="Location..">
+        <!-- GRANIM CANVAS -->
+        <canvas id="granim-canvas"></canvas>
+
+        <!-- CONTAINER FOR PAGE ITEMS -->
+        <div class="body-container">
+            <!-- GLACION LOGO -->
+            <img class="logo" src="images/glacion-logo-red.svg" alt="Glacion Logo">
+            
+            <!-- SEARCH BOXES -->
+            <form class="searchbox" action="">
+                <!-- LOCATION SEARCH BOX -->
+                <div class="location-searchbox">
+                    <input class="search-location" type="text" placeholder="Location..">
+                </div>
+                <!-- JOB TITLE AND DATE CONTAINER -->
+                <div class="job-date-container">
+                    <!-- JOB TITLE SEARCH BOX -->
+                    <div class="job-title-searchbox">
+                        <input class="search-job-title" type="text" placeholder="Job Title..">
+                    </div>
+                    <!-- DATE MENU -->
+                    <div class="date-container">
+                        <select class="date-select">
+                            <option value="" disabled selected>Days</option>
+                            <option value="15">15 Days</option>
+                            <option value="30">30 Days</option>
+                            <option value="60">60 Days</option>
+                            <option value="90">90 Days</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- BUTTON -->
+                <button class="search-button">Search</button>
+            </form>
         </div>
-        <!-- JOB TITLE AND DATE CONTAINER -->
-        <div class="job-date-container">
-            <!-- JOB TITLE SEARCH BOX -->
-            <div class="job-title-searchbox">
-                <input class="search-job-title" type="text" placeholder="Job Title..">
-            </div>
-            <!-- DATE MENU -->
-            <div class="date-container">
-                <select class="date-select">
-                    <option value="" disabled selected>Days</option>
-                    <option value="15">15 Days</option>
-                    <option value="30">30 Days</option>
-                    <option value="60">60 Days</option>
-                    <option value="90">90 Days</option>
-                </select>
-            </div>
-        </div>
-        <!-- BUTTON -->
-        <button class="search-button">Search</button>
-    </form>
 
     <!-- GRANIM LIBRARY SCRIPT -->
     <script src="scripts/granim.min.js"></script>
     <!-- MY GRANIM SCRIPT -->
     <script src="scripts/granim.js"></script>
+    <!-- jQuery SCRIPT -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- FADE SCRIPT -->
+     <script src="scripts/fade.js"></script> 
 </body>
 </html>

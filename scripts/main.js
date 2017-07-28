@@ -71,7 +71,6 @@ var localTestData = ["Chik Fil A", "Accenture Technology Solutions", "Visionaire
 var TestString = localTestData[0];
 // console.log(TestString)
 // console.log(GMAPS_URL+TestString+'&key='+GOOGLE_MAPS_API)
-
 function convertZiptoCity(zipcode) {
     return $.get("http://maps.googleapis.com/maps/api/geocode/json?address="+zipcode+"&sensor=true")
         .then (function(data) {

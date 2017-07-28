@@ -9,3 +9,16 @@
     bottom: 0;
     left: 0;
 }
+
+/* LOGO */
+.logo {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 12%;
+    height: 12%; 
+    /* border: 5px solid green; */
+    padding: 0px;
+}

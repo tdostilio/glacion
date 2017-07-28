@@ -1,3 +1,8 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
 /* BACKGROUND */
 .background {
     position: absolute;
@@ -24,10 +29,32 @@
     padding: 0px;
 }
 
+/* GOOGLE MAP  */
+#map {
+    position: relative; 
+    height: 80%;
+    margin-top: 14%;
+    margin-left: 5%;
+    margin-right: 5%;
+    
+    /* left: 2%;
+    top: 8%;
+    bottom: 8%;
+    right: 2%;
+     z-index: 2; */
+    /* background-color: grey; */
+}
+
 /* iPad */
 @media (min-width: 768px) {
     .logo {
         margin-top: -3%;
+    }
+}
+
+@media (min-width: 800px) {
+    #map {
+        margin-top: 12%;
     }
 }
 
@@ -37,18 +64,21 @@
         margin-top: -1%;
         margin-left: -5%;
     }
-}
+    #map {
+        margin-top: 14%;
+    }
+} 
 
-/* Browser Small */
+/* Browser */
 @media (min-width: 1100px) {
-    .logo {
-        margin-left: -8%;
+    #map {
+        margin-top: 8%;
     }
 }
 
-/* Browser Average */
-@media (min-width: 1366px) {
-    .logo {
-        margin-left: -12%;
+/* Browser Medium */
+@media (min-width: 1300px) {
+    #map {
+        margin-top: 6%;
     }
 }

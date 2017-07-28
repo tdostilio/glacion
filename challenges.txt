@@ -1,0 +1,5 @@
+
+
+Day one challenges:
+
+First big challenge was finding a suitable API for our project goal. All the APIs we found were either 

@@ -26,8 +26,13 @@
 
 /* GOOGLE MAP  */
 #map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    margin-top: 50px;
     width: 100%;
-    height: 400px;
+    height: 500px;
     background-color: grey;
 }
 

@@ -16,15 +16,7 @@ function initMap() {
 
     google.maps.event.addDomListener(window, "resize", function() {
         var center = map.getCenter();
-        resizeMap();
         google.maps.event.trigger(map, "resize");
         map.setCenter(center);
     });
-
-    function resizeMap(){
-        var h = window.innerHeight;
-        var w = window.innerWidth;
-        $("#map").width(w/2);
-        $("#map").height(h-50);
-    }
 }

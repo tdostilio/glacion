@@ -18,8 +18,11 @@ $FORM.on('submit', function(event) {
                     return (getCompanyName(data))
                 })
                 .then(function(data) {
-                    console.log('Hi');
-                    return getCoordinates(data, $LOCATION)
+                    return getCoordinates(data, $LOCATION.val())
+                })
+                .then(function(data) {
+                    console.log(data);
+                    return data;
                 })
 });
 
@@ -51,8 +54,6 @@ function getServerData(criteria,zipcode,date) {
             return searchResults;
         })
 };
-
-
 
 function getDataArray(objectArray) {
     return Promise.all(objectArray)
@@ -96,11 +97,11 @@ function convertZiptoCity(zipcode) {
 
 
 function getCoordinates(array, zipcode){
-    // return convertZiptoCity(zipcode)
-    // .then (function(city) {
+    return convertZiptoCity(zipcode)
+    .then (function(city) {
         var coordinatesPromisesArray = array.map( function(item) {
                 // console.log(GMAPS_URL+item+"corporate"+'&key='+GOOGLE_MAPS_API);
-                return $.get(GMAPS_URL+item+"corporate"+'&key='+GOOGLE_MAPS_API)
+                return $.get(GMAPS_URL+item+"corporate"+city+'&key='+GOOGLE_MAPS_API)
                     .then (function(data) {
                         return data.results})
                     .then (function(data) {
@@ -116,8 +117,8 @@ function getCoordinates(array, zipcode){
                     return item;
                 });
             });
-        }
-// }
+        });
+}
 
 // function convertCoordinatesHeatMap(){
 //     return getCoordinates(localTestData,30342)

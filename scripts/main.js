@@ -102,12 +102,18 @@ function getCoordinates(array, location){
                     .then (function(data) {
                         return data.results})
                     .then (function(data) {
-                        return data[0].geometry})
-                    .then (function(data) {
-                    return data.location;
+                        if (data[0]) {
+                            return data[0].geometry.location;
+                        } else {
+                            return null;
+                        }
                     }).catch(console.log.bind(console));
             });
-            return Promise.all(coordinatesPromisesArray);
+            return Promise.all(coordinatesPromisesArray).then(function(dataArray) {
+                return dataArray.filter(function(item) {
+                    return item;
+                });
+            });
         })
 }
 

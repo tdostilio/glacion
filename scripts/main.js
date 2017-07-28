@@ -117,11 +117,24 @@ function getCoordinates(array, location){
         })
 }
 
-getCoordinates(localTestData,30342)
-    .then (function(dataArray) {
-        dataArray.map(function(item) {
-            
-        });
-    })
-;
+function convertCoordinatesHeatMap(){
+    return getCoordinates(localTestData,30342)
+        .then (function(dataArray) {
+            var HeatMapData = dataArray.map( function(element) {
+                var testerthingy = new google.maps.LatLng(element.lat, element.lng);
+                debugger;
+                return testerthingy;
+            }) 
+            return Promise.all(HeatMapData).then(function(data) {
+                console.log(data);
+            })  
+        })
+
+}
+
+var heatmap = new google.maps.visualization.HeatmapLayer({
+  data: HeatMapData
+});
+
+console.log(convertCoordinatesHeatMap());
 

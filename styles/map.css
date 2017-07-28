@@ -33,15 +33,16 @@ html, body {
 #map {
     position: relative; 
     height: 80%;
-    margin-top: 12%;
-    width: 100%; 
+    margin-top: 14%;
+    margin-left: 5%;
+    margin-right: 5%;
+    
     /* left: 2%;
     top: 8%;
     bottom: 8%;
     right: 2%;
      z-index: 2; */
-    /* background-color: grey;  */
-
+    /* background-color: grey; */
 }
 
 /* iPad */
@@ -51,15 +52,33 @@ html, body {
     }
 }
 
+@media (min-width: 800px) {
+    #map {
+        margin-top: 12%;
+    }
+}
+
 /* iPad Pro */
- @media (min-width: 1024px) {
+@media (min-width: 1024px) {
     .logo {
         margin-top: -1%;
         margin-left: -5%;
     }
-
-    /* #map {
-        top: 11%;
-        bottom: 11%;
-    } */
+    #map {
+        margin-top: 14%;
+    }
 } 
+
+/* Browser */
+@media (min-width: 1100px) {
+    #map {
+        margin-top: 8%;
+    }
+}
+
+/* Browser Medium */
+@media (min-width: 1300px) {
+    #map {
+        margin-top: 6%;
+    }
+}

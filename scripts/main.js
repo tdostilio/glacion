@@ -78,31 +78,29 @@ function convertZiptoCity(zipcode) {
         })
 }
 
-convertZiptoCity(30342)
-    .then (function(data) {
-        console.log(data);
+
+
+function getCoordinates(array, location){
+    return convertZiptoCity(30342)
+    .then (function(city) {
+        var coordinatesPromisesArray = array.map( function(item) {
+                console.log(GMAPS_URL+item+city+"corporate"+'&key='+GOOGLE_MAPS_API);
+                return $.get(GMAPS_URL+item+city+"corporate"+'&key='+GOOGLE_MAPS_API)
+                    .then (function(data) {
+                        return data.results})
+                    .then (function(data) {
+                        return data[0].geometry})
+                    .then (function(data) {
+                    return data.location;
+                    }).catch(console.log.bind(console));
+            });
+            return Promise.all(coordinatesPromisesArray);
+        })
+}
+
+getCoordinates(localTestData,30342)
+    .then (function(dataArray) {
+        console.log(dataArray);
     })
-
-
-// function getCoordinates(array, location){
-// //    var city = $.get("http://maps.googleapis.com/maps/api/geocode/json?address="+location+"&sensor=true"); 
-//    var coordinatesPromisesArray = array.map( function(item) {
-//         console.log(GMAPS_URL+item+"corporate"+location+'&key='+GOOGLE_MAPS_API);
-//         return $.get(GMAPS_URL+item+"corporate"+location+'&key='+GOOGLE_MAPS_API)
-//             .then (function(data) {
-//                 return data.results})
-//             .then (function(data) {
-//                 return data[0].geometry})
-//             .then (function(data) {
-//               return data.location;
-//             }).catch(console.log.bind(console));
-//     });
-//     return Promise.all(coordinatesPromisesArray);
-// }
-
-// getCoordinates(localTestData,30342)
-//     .then (function(dataArray) {
-//         console.log(dataArray);
-//     })
-// ;
+;
 

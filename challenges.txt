@@ -2,4 +2,8 @@
 
 Day one challenges:
 
-First big challenge was finding a suitable API for our project goal. All the APIs we found were either 
+First big challenge was finding a suitable API for our project goal. All the free APIs we found were significantly flawed, and all the decent ones were private and required partnership. The one we settled on was a free API from Dice.com which successfully pulled a lot of data, however it lacked an address for the company or job posting... something we needed to work around. Due to time constraints we were unable to wait for a premium API so we invented a work-around. We decided to circumvent this problem by adding an intermediary step where we text searched the company title along with the zipcode the user entered into google maps and returned the coordinates of the first result. We experienced a ~10% data loss using this method as some companies were unable to be found due to various reasons like the opportunity being remote and no company headquarters being located in the zip code provided. 
+
+Some of the technical challenges lay in the returning of large promise chains where we were unable to get usuable data until everything had run because of the way we were calling our functions. Using return Promise.all(...) was our solution and allowed the functions to complete all promises before returning the data we sought after. 
+
+Another techinical challenge was getting the job posting results in a usuable form. The DICE API was limited to 50 results per page, and in broad queries with job postings numbering in the thousands we needed a solution. We decided to use a for-loop from 1 to Math.ceil(jobCount/50) to loop through every page and push all the data into an array we could manipulate in later functions.

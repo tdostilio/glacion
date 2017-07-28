@@ -7,3 +7,7 @@ First big challenge was finding a suitable API for our project goal. All the fre
 Some of the technical challenges lay in the returning of large promise chains where we were unable to get usuable data until everything had run because of the way we were calling our functions. Using return Promise.all(...) was our solution and allowed the functions to complete all promises before returning the data we sought after. 
 
 Another techinical challenge was getting the job posting results in a usuable form. The DICE API was limited to 50 results per page, and in broad queries with job postings numbering in the thousands we needed a solution. We decided to use a for-loop from 1 to Math.ceil(jobCount/50) to loop through every page and push all the data into an array we could manipulate in later functions.
+
+
+Day 2 Challenges:
+Coordinates function would return data outside of Atlanta when we were testing for Atlanta zip codes. 

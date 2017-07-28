@@ -24,6 +24,9 @@ $FORM.on('submit', function(event) {
                     console.log(data);
                     return data;
                 })
+                .then(function(data) {
+                    localStorage.setItem('coordinateArray', JSON.stringify(data));
+                })
 });
 
 
@@ -119,6 +122,13 @@ function getCoordinates(array, zipcode){
             });
         });
 }
+
+
+
+
+
+
+
 
 // function convertCoordinatesHeatMap(){
 //     return getCoordinates(localTestData,30342)

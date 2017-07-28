@@ -74,20 +74,22 @@ var TestString = localTestData[0];
 
 
 function getCoordinates(array, location){
-    var coordinates = []
-   for (x in array) {
-        console.log(GMAPS_URL+array[x]+location+'&key='+GOOGLE_MAPS_API);
-        $.get(GMAPS_URL+array[x]+location+'&key='+GOOGLE_MAPS_API)
+   var coordinatesPromisesArray = array.map( function(item) {
+        console.log(GMAPS_URL+item+location+'&key='+GOOGLE_MAPS_API);
+        return $.get(GMAPS_URL+item+location+'&key='+GOOGLE_MAPS_API)
             .then (function(data) {
                 return data.results})
-                    .then (function(data) {
-                        return data[0].geometry})
-                            .then (function(data) {
-                                coordinates.push(data.location)
-                            });
-    }
-    return coordinates 
+            .then (function(data) {
+                return data[0].geometry})
+            .then (function(data) {
+              return data.location;
+            }).catch(console.log.bind(console));
+    });
+    return Promise.all(coordinatesPromisesArray);
 }
 
-var searchData = getCoordinates(localTestData,30342);
-console.log(searchData);
+getCoordinates(localTestData,30342)
+    .then (function(dataArray) {
+        console.log(dataArray);
+    })
+;

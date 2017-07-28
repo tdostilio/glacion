@@ -10,9 +10,9 @@
     left: 0;
 }
 
-/* FADE */
+ /* FADE */
 body {
-    -webkit-animation: fadeout 6s; /* Safari, Chrome and Opera > 12.1 */
+     -webkit-animation: fadeout 6s;  /*Safari, Chrome and Opera > 12.1  */
        -moz-animation: fadeout 6s; /* Firefox < 16 */
         -ms-animation: fadeout 6s; /* Internet Explorer */
          -o-animation: fadeout 6s; /* Opera < 12.1 */
@@ -45,4 +45,4 @@ body {
 @-o-keyframes fadeout {
     from { opacity: 0; }
     to   { opacity: 1; }
-}
+} */

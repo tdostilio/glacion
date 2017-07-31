@@ -11,6 +11,9 @@ var $container = $(".body-container");
 
 $FORM.on('submit', function(event) {
     event.preventDefault();
+    $.getScript("pace/pace.js", function(){
+        Pace.start();
+    });
     console.log('hello');
     getServerData($CRITERIA.val(),$LOCATION.val(),$AGE.val())
         .then(function(data) {

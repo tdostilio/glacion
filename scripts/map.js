@@ -1,5 +1,8 @@
+ var map, heatmap;
+
 function initMap() {
-    var uluru = {lat: 33.7, lng: -84.4};
+    var firstPoint = JSON.parse(localStorage.getItem("coordinateArray"))[0];
+    var uluru = {lat: firstPoint['lat'], lng: firstPoint['lng']};
 
     var mapOptions = {
         zoom: 10,
@@ -148,9 +151,20 @@ function initMap() {
 
     var heatmap = new google.maps.visualization.HeatmapLayer({
           data: getPoints(),
-          map: map
-        //   gradient: [{"color":}]
+          map: map,
+          opacity: .85,
+          maxIntensity: 10,
+          dissipating: true,
+          radius: 20,
+          gradient: [
+          'rgba(0, 0, 0, 0)',
+          'rgba(197, 109, 0, 1)',
+          'rgba(197, 109, 0, 1)',
+          'rgba(197, 109, 0, 1)',
+          'rgba(197, 109, 0, 1)',
+        ]
     });
+
 
     //RESIZES MAP
     google.maps.event.addDomListener(window, "resize", function() {
@@ -169,3 +183,7 @@ function getPoints() {
     });
     return arr;
 }
+
+
+
+    

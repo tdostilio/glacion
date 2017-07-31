@@ -1,4 +1,4 @@
-var GOOGLE_MAPS_API = "AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw";
+var GOOGLE_MAPS_API = "AIzaSyCsCduOEISLakr8UrXtKcYH3Fm627jyktk"; //Tom's Key: AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw
 var DICE_BASE_URL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?";
 var GMAPS_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
 var $LOCATION = $(".search-location");
@@ -14,7 +14,9 @@ $FORM.on('submit', function(event) {
         .then(function(data) {
         return getDataArray(data)})
                 .then(function(data) {
+
                     console.log(data)
+
                     return (getCompanyName(data))
                 })
                 .then(function(data) {
@@ -29,6 +31,16 @@ $FORM.on('submit', function(event) {
                 })
 });
 
+
+function limit(arr) {
+    console.log("Limiting------");
+    var len = arr.length;
+    if (len > 300) {
+        return arr.splice(300);
+    } else {
+        return arr;
+    }
+}
 
 function getServerData(criteria,zipcode,date) {
     var locationSearch;

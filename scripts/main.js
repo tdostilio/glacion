@@ -145,4 +145,3 @@ function getCoordinates(array, zipcode){
             });
         });
 }
-

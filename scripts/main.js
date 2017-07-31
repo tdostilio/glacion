@@ -14,11 +14,11 @@ $FORM.on('submit', function(event) {
         .then(function(data) {
         return getDataArray(data)})
                 .then(function(data) {
-                    console.log(getCompanyName(data))
+                    console.log(data)
                     return (getCompanyName(data))
                 })
                 .then(function(data) {
-                    return getCoordinates(data, $LOCATION.val())
+                    return getCoordinates(data, $LOCATION.val());
                 })
                 .then(function(data) {
                     console.log(data);
@@ -102,8 +102,18 @@ function convertZiptoCity(zipcode) {
 function getCoordinates(array, zipcode){
     return convertZiptoCity(zipcode)
     .then (function(city) {
-        var coordinatesPromisesArray = array.map( function(item) {
-                // console.log(GMAPS_URL+item+"corporate"+'&key='+GOOGLE_MAPS_API);
+        var shortenedArray = [];
+        if (array.length > 100) {
+            var subtractor = array.length - 100;
+            shortenedArray = array.splice(subtractor);
+        }
+        else {
+            shortenedArray = array;
+        }
+        console.log(shortenedArray);
+        var coordinatesPromisesArray = shortenedArray.map( function(item) {
+                console.log(item)
+                console.log(GMAPS_URL+item+"corporate"+city+'&key='+GOOGLE_MAPS_API);
                 return $.get(GMAPS_URL+item+"corporate"+city+'&key='+GOOGLE_MAPS_API)
                     .then (function(data) {
                         return data.results})
@@ -115,7 +125,8 @@ function getCoordinates(array, zipcode){
                         }
                     }).catch(console.log.bind(console));
             });
-            return Promise.all(coordinatesPromisesArray).then(function(dataArray) {
+            return Promise.all(coordinatesPromisesArray)
+            .then(function(dataArray) {
                 return dataArray.filter(function(item) {
                     return item;
                 });

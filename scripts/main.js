@@ -1,10 +1,12 @@
-var GOOGLE_MAPS_API = "AIzaSyCsCduOEISLakr8UrXtKcYH3Fm627jyktk"; //Tom's Key: AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw
+var GOOGLE_MAPS_API = "AIzaSyCnCGDNJl0LqTrgEaVYbT_I8eFuL8dOEJE"; //Tom's Key: AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw
 var DICE_BASE_URL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?";
 var GMAPS_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
 var $LOCATION = $(".search-location");
 var $CRITERIA = $('.search-job-title');
 var $AGE = $('.date-select');
 var $FORM = $('.searchbox');
+var $button = $(".search-button");
+var $container = $(".body-container");
 
 
 $FORM.on('submit', function(event) {
@@ -28,6 +30,11 @@ $FORM.on('submit', function(event) {
                 })
                 .then(function(data) {
                     localStorage.setItem('coordinateArray', JSON.stringify(data));
+                    
+                    // FADES OUT AND CALLS MAP.HTML 
+                    $container.fadeOut("slow", function(){
+                        window.location.replace("map.html");
+                    });  
                 })
 });
 
@@ -115,8 +122,8 @@ function getCoordinates(array, zipcode){
     return convertZiptoCity(zipcode)
     .then (function(city) {
         var shortenedArray = [];
-        if (array.length > 100) {
-            var subtractor = array.length - 100;
+        if (array.length > 250) {
+            var subtractor = array.length - 250;
             shortenedArray = array.splice(subtractor);
         }
         else {

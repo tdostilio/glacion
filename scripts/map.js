@@ -149,6 +149,7 @@ function initMap() {
     var heatmap = new google.maps.visualization.HeatmapLayer({
           data: getPoints(),
           map: map
+        //   gradient: [{"color":}]
     });
 
     //RESIZES MAP

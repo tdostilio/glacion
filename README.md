@@ -6,12 +6,12 @@
 
   - Tom D'Ostilio
   Primary Team Role: Front-End
-  Contributions: Tom developed most of the JavaScript invovled in the project. Tom connected to Dice's api to gather data......
+  Contributions: Tom developed most of the JavaScript involved in the project. Tom connected to Dice's API to gather data and retrieved the company name from job posting. Using the company name along with a few keywords and the zip code information provided by user he searched the Google Maps API and pulled the coordinates for the company location. He then stored them in local storage in an array for later use as objects for the heat map overlay.
   Key Code Portions: Wrote JavaScript to access Dice Api, geocode the data, and pass to a google map to be displayed. 
   
   - Max Irvine
   Primary Team Role: UI/UX, Front-End backup
-  Contributions: Max did the design of the Glacion site. He incorporate multiple JavaScript libraries: such as granim.js and page.js. He created the logo in Adobe Illustrator. Max also worked alongside Tom to link Tom's work to Google Maps. 
+  Contributions: Max did the design of the Glacion site. He incorporated multiple JavaScript libraries: such as granim.js and page.js. He created the logo in Adobe Illustrator. Max also worked alongside Tom to link Tom's work to Google Maps. 
   Key Code Portions: Wrote the HTML and CSS for the site, developed logo design, and connected Google Map. 
   
 ##Languages we used: 
@@ -22,11 +22,12 @@
   Library:
   - Page.js
   - Granim.js
+  - Google Maps Visualization Library
   
 ##MVP (Minimum Viable Product): This was our first front-end project for all team members. 
 
 Initial MVP
-  - add forum
+  - add input form
   - add Google Maps
   - Connect Dice API
   - add job data to Google Map using pins
@@ -40,14 +41,83 @@ Strech Goals
   
 Challanges & Solutions:
 Some of the biggest challenges we faced with this project build included: 
-  1.) Challenge: blah blah
-  
-  Solution: .....
+
+  The first big challenge was finding a suitable API for our project goal. All the free APIs we found were significantly flawed, and all of the decent ones were private or required partnership. The one we settled on was a free API from Dice.com which successfully pulled a lot of data, however it lacked an address for the company or job posting... Due to time constraints we were unable to wait for a premium API so we invented a work-around. We decided to circumvent this problem by adding an intermediary step where we text searched the company title along with the zipcode the user entered into google maps and a keyword "corporate" and pulled the coordinates of the first result. The use of "corporate" in the search was to eliminate addresses returned from fast food chains or local retail offices. This was tested using Chik Fil A in Atlanta and the address queried moved from a location on Roswell road to the company headquarters where the job was posted. We experienced a ~10% data loss using this method as some companies were unable to be found due to various reasons like the opportunity being remote and no company headquarters being located in the zip code provided. 
+
+  Some of the technical challenges lay in the returning of large promise chains where we were unable to get usuable data until everything had run because of the way we were calling our functions. Using return Promise.all(...) was our solution and allowed the functions to complete all promises before returning the data we sought after. 
+
+  Another technical challenge was getting the job posting results in a usuable form. The DICE API was limited to 50 results per page,and in broad queries with job postings numbering in the thousands we needed a solution. We decided to use a for-loop from 1 to Math.ceil(jobCount/50) to loop through every page and push all the data into an array we could manipulate in later functions.
+
+  The last big challenge, and ultimately the greatest challenge we faced was the quota limit on queries from Google Maps on their Web API. At a limit of 2,500 requests per day we found ourselves locked out on our very first day of testing. To help with this problem we decided to limit search results to 250 queries to give ourselves room to test. Anything less than 250 would fail to populate a heatmap of any significance, and anything more would reduce our ability to test. If we intended to take this product live and allow public use we would need to pay for a premium membership. Other solutions involved caching data for popular searches in major cities.
   
 ##Code Snippets
+<!--Below is the main search function that occus on form submit -->
+$FORM.on('submit', function(event) {
+    event.preventDefault();
+    $.getScript("pace/pace.js", function(){
+        Pace.start();
+    });
+    console.log('hello');
+    getServerData($CRITERIA.val(),$LOCATION.val(),$AGE.val())
+        .then(function(data) {
+        return getDataArray(data)})
+                .then(function(data) {
+                    //Returns array of company names
+                    return (getCompanyName(data))
+                })
+                .then(function(data) {
+                    //Gets Coordinate Pairs 
+                    return getCoordinates(data, $LOCATION.val());
+                })
+                .then(function(data) {
+                    return data;
+                })
+                .then(function(data) {
+                    //Stores coordinate Array to Local Storage
+                    localStorage.setItem('coordinateArray',JSON.stringify(data));
 
+                    // FADES OUT AND CALLS MAP.HTML 
+                    $container.fadeOut("slow", function(){
+                        window.location.replace("map.html");
+                    });  
+                })
+});
 
-
+<!--This is our Get Coordinates Function  -->
+function getCoordinates(array, zipcode){
+    return convertZiptoCity(zipcode)
+    .then (function(city) {
+        var shortenedArray = [];
+        //Shortens query results to a maximum of 250 results
+        if (array.length > 250) {
+            var subtractor = array.length - 250;
+            shortenedArray = array.splice(subtractor);
+        }
+        else {
+            shortenedArray = array;
+        }
+        var coordinatesPromisesArray = shortenedArray.map( function(item) {
+          //Using this shortened array - retrieve the coordinates of the first result matching the below query and map the coordinates to a new array
+                return $.get(GMAPS_URL+item+"corporate"+city+'&key='+GOOGLE_MAPS_API)
+                    .then (function(data) {
+                        return data.results})
+                    .then (function(data) {
+                        if (data[0]) {
+                            return data[0].geometry.location;
+                        } else {
+                            return null;
+                        }
+                    }).catch(console.log.bind(console));
+            });
+            //Removes all undefined values 
+            return Promise.all(coordinatesPromisesArray)
+            .then(function(dataArray) {
+                return dataArray.filter(function(item) {
+                    return item;
+                });
+            });
+        });
+}
 
 ##Screenshots
 

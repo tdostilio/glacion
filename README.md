@@ -1,4 +1,4 @@
-# glacion ![Alt text](images/glacion-logo-red.svg?raw=true)
+![Alt text](images/glacion-logo-red-new.png?raw=true)
 
 ## Overview: Glacion is a web application that helps people find where they should live for their next job. The user is prompted with a city they would like to live in, a job they would like to have, and a time frame the job has been listed in. Glacion takes the user's information and displays a heat map overlay on a google map. High heat areas show where jobs are concentrated. This gives the user an idea of where they should move to. 
 
@@ -50,7 +50,11 @@ Some of the biggest challenges we faced with this project build included:
 
 
 ##Screenshots
+![Alt text](images/home-page.png?raw=true)
+This is a shot of the home page for the application. The form excepts a location you desire to move to, a job you would like, and a time frame that the job was listed in. 
 
+![Alt text](images/atlanta.png?raw=true)
+This is a shot of the map page. A google map is displayed with a heat map overlay indicating areas of high job concentration. This allows the user to see where the best jobs are located to find a place to stay. 
 
 ##Desired Contributions: We love anyone who is willing to contibute to our project. Here are some features we have not implemented that would make the site 10x better.
   - unlimited geocoding API

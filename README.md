@@ -56,6 +56,9 @@ This is a shot of the home page for the application. The form excepts a location
 ![Alt text](images/atlanta.png?raw=true)
 This is a shot of the map page. A google map is displayed with a heat map overlay indicating areas of high job concentration. This allows the user to see where the best jobs are located to find a place to stay. 
 
+##YouTube Video
+https://youtu.be/b0IKJUky6xU
+
 ##Desired Contributions: We love anyone who is willing to contibute to our project. Here are some features we have not implemented that would make the site 10x better.
   - unlimited geocoding API
   - integration with airBnB to display places to rent

@@ -1,4 +1,4 @@
-var GOOGLE_MAPS_API = "AIzaSyC0EDq2RWwzY7KZ0uMMHdgp-BiF4BtB7a4"; //Tom's Key: AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw
+var GOOGLE_MAPS_API = "AIzaSyDyP-CDcYsQMrECY9Nh_EyqNHTiPoCXxKw"; //Tom's Key: AIzaSyDiqCd6BJiVSW2HnxSSEFfqhCboUrToFPw
 var DICE_BASE_URL = "http://service.dice.com/api/rest/jobsearch/v1/simple.json?";
 var GMAPS_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=";
 var $LOCATION = $(".search-location");

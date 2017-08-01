@@ -50,7 +50,11 @@ Some of the biggest challenges we faced with this project build included:
 
 
 ##Screenshots
+![Alt text](images/home-page.png?raw=true)
+This is a shot of the home page for the application. The form excepts a location you desire to move to, a job you would like, and a time frame that the job was listed in. 
 
+![Alt text](images/atlanta.png?raw=true)
+This is a shot of the map page. A google map is displayed with a heat map overlay indicating areas of high job concentration. This allows the user to see where the best jobs are located to find a place to stay. 
 
 ##Desired Contributions: We love anyone who is willing to contibute to our project. Here are some features we have not implemented that would make the site 10x better.
   - unlimited geocoding API

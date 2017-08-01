@@ -7,14 +7,7 @@ var $AGE = $('.date-select');
 var $FORM = $('.searchbox');
 var $button = $(".search-button");
 var $container = $(".body-container");
-var majorCityZips = {
-    'ATLANTA':30342,
-    'NEW YORK':10007,
-    'SAN FRANCISCO':94016,
-    'MIAMI': 33124,
-    'CHICAGO': 
 
-}
 
 $FORM.on('submit', function(event) {
     event.preventDefault();

@@ -1,8 +1,8 @@
 # glacion ![Alt text](images/glacion-logo-red.svg?raw=true)
 
-## Overview: Glacion is a web application that helps people find where they should live for their next job. The user is prompted with a city they would like to live in, a job they would like to have, and a time frame the job has been listed in. Glacion takes the user's information and displays a heat map overlay on a google map. High heat areas show where jobs are concentrated. This gives the user an idea of where they should move to. 
+## Overview: Glacion is a web application that helps people find the locations of specific job concentrations in an area. This is helpful in deciding where someone should live if they move to a new city or when looking for their next job. The user is prompted with a city they would like to live in, a job they would like to have, and a time frame the job has been listed in. Glacion takes the user's information and displays a heat map overlay on a Google map. High heat areas show where jobs are concentrated. This gives the user an idea of where they should move to. 
 
-##Team Members & Roles: Click on eac member's name to see their GitHub profile. All team members are students in the Digital Crafts June 2017 cohort. This project was our first paired project, in which, we used our front-end development skills. 
+##Team Members & Roles: Click on each member's name to see their GitHub profile. All team members are students in the Digital Crafts June 2017 cohort. This project was our first paired project, in which, we used our front-end development skills. 
 
   - Tom D'Ostilio
   Primary Team Role: Front-End
@@ -38,17 +38,18 @@ Strech Goals
   - customize the standard google map 
   - add custom logo
   - add beautiful background
+  - add specific job posting information and recruiter info on map
   
-Challanges & Solutions:
+Challenges & Solutions:
 Some of the biggest challenges we faced with this project build included: 
 
-  The first big challenge was finding a suitable API for our project goal. All the free APIs we found were significantly flawed, and all of the decent ones were private or required partnership. The one we settled on was a free API from Dice.com which successfully pulled a lot of data, however it lacked an address for the company or job posting... Due to time constraints we were unable to wait for a premium API so we invented a work-around. We decided to circumvent this problem by adding an intermediary step where we text searched the company title along with the zipcode the user entered into google maps and a keyword "corporate" and pulled the coordinates of the first result. The use of "corporate" in the search was to eliminate addresses returned from fast food chains or local retail offices. This was tested using Chik Fil A in Atlanta and the address queried moved from a location on Roswell road to the company headquarters where the job was posted. We experienced a ~10% data loss using this method as some companies were unable to be found due to various reasons like the opportunity being remote and no company headquarters being located in the zip code provided. 
+  The first big challenge was finding a suitable API for our project goal. All the free APIs we found were significantly flawed, and all of the decent ones were private or required partnership. The one we settled on was a free API from Dice.com which successfully pulled a lot of data, however it lacked an address for the company or job posting... Due to time constraints we were unable to wait for a premium API so we invented a work-around. We decided to circumvent this problem by adding an intermediary step where we text searched the company title along with the zipcode the user entered into google maps and a keyword "corporate" and pulled the coordinates of the first result. The use of "corporate" in the search was to eliminate addresses returned from fast food chains or local retail offices. This was tested using Chik Fil A in Atlanta and the address queried moved from a location on Roswell road to the company headquarters where the job was posted. We experienced a ~10% data loss using this method as some companies were unable to be found due to various reasons, however the location information we did pull was more accurate. 
 
-  Some of the technical challenges lay in the returning of large promise chains where we were unable to get usuable data until everything had run because of the way we were calling our functions. Using return Promise.all(...) was our solution and allowed the functions to complete all promises before returning the data we sought after. 
+  Some of the technical challenges lay in the returning of large promise chains where we were unable to get usuable data until everything had run. Using return Promise.all(...) was our solution and allowed the functions to complete all promises before returning the data we sought. 
 
   Another technical challenge was getting the job posting results in a usuable form. The DICE API was limited to 50 results per page,and in broad queries with job postings numbering in the thousands we needed a solution. We decided to use a for-loop from 1 to Math.ceil(jobCount/50) to loop through every page and push all the data into an array we could manipulate in later functions.
 
-  The last big challenge, and ultimately the greatest challenge we faced was the quota limit on queries from Google Maps on their Web API. At a limit of 2,500 requests per day we found ourselves locked out on our very first day of testing. To help with this problem we decided to limit search results to 250 queries to give ourselves room to test. Anything less than 250 would fail to populate a heatmap of any significance, and anything more would reduce our ability to test. If we intended to take this product live and allow public use we would need to pay for a premium membership. Other solutions involved caching data for popular searches in major cities.
+  The last big challenge, and ultimately the greatest challenge we faced was the quota limit on queries from Google Maps on their Web API. At a limit of 2,500 requests per day we found ourselves locked out on our very first day of testing. To help with this problem we decided to limit search results to 250 queries to give ourselves room to test. Anything less than 250 would fail to populate a heatmap of any significance, and anything more would reduce our ability to test. If we intended to take this product live and allow public use we would need to pay for a premium membership. Another possible solution involves caching data for popular searches in major cities.
   
 ##Code Snippets
 <!--Below is the main search function that occus on form submit -->
@@ -83,7 +84,7 @@ $FORM.on('submit', function(event) {
                 })
 });
 
-<!--This is our Get Coordinates Function  -->
+//This is our Get Coordinates Function  
 function getCoordinates(array, zipcode){
     return convertZiptoCity(zipcode)
     .then (function(city) {
@@ -122,14 +123,14 @@ function getCoordinates(array, zipcode){
 ##Screenshots
 
 
-##Desired Contributions: We love anyone who is willing to contibute to our project. Here are some features we have not implemented that would make the site 10x better.
+##Desired Contributions: We love anyone who is willing to contibute to our project. Here are some features we have not implemented that would make the site better.
   - unlimited geocoding API
   - integration with airBnB to display places to rent
-  - .....
+  - allow recruiter information to be gather on clicking a heatmap     object
 
 ##Contributing
   1. Fork it
-  2. Create a new feature branch(named after your intended feature): git checkout -b new-feature-name
+  2. Create a new feature branch(named after your intended feature):    git checkout -b new-feature-name
   3. Commit your changes: git commit -am 'added the feature!'
   4. Push to your feature branch: git push origin new-feature-name
   5. Submit a pull request!

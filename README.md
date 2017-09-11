@@ -52,7 +52,7 @@ Some of the biggest challenges we faced with this project build included:
   The last big challenge, and ultimately the greatest challenge we faced was the quota limit on queries from Google Maps on their Web API. At a limit of 2,500 requests per day we found ourselves locked out on our very first day of testing. To help with this problem we decided to limit search results to 250 queries to give ourselves room to test. Anything less than 250 would fail to populate a heatmap of any significance, and anything more would reduce our ability to test. If we intended to take this product live and allow public use we would need to pay for a premium membership. Another possible solution involves caching data for popular searches in major cities.
   
 ##Code Snippets
-```
+``` javascript
 //Below is the main search function that occus on form submit 
 $FORM.on('submit', function(event) {
     event.preventDefault();
@@ -86,7 +86,7 @@ $FORM.on('submit', function(event) {
 });
 ```
 
-```
+``` javascript
 //This is our Get Coordinates Function  
 function getCoordinates(array, zipcode){
     return convertZiptoCity(zipcode)
